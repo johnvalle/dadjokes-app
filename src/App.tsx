@@ -2,6 +2,7 @@ import React from "react";
 
 import { QueryClient, QueryClientProvider } from "react-query";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { ChakraProvider } from "@chakra-ui/react";
 
 import * as Pages from "./pages";
 
@@ -15,11 +16,13 @@ function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <BrowserRouter>
-        <Switch>
-          <Route path="/" component={Pages.Dashboard} />
-        </Switch>
-      </BrowserRouter>
+      <ChakraProvider>
+        <BrowserRouter>
+          <Switch>
+            <Route path="/" component={Pages.Dashboard} />
+          </Switch>
+        </BrowserRouter>
+      </ChakraProvider>
     </QueryClientProvider>
   );
 }
